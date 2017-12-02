@@ -12,7 +12,7 @@ call vundle#rc()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'L9'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Lokaltog/vim-powerline'
+Plugin 'Lokaltog/vim-powerline' "dont use the latest version in putty
 Plugin 'tpope/vim-fugitive'  "branch of powerline
 Plugin 'c9s/colorselector.vim'
 Plugin 'ap/vim-css-color'
@@ -36,8 +36,7 @@ Plugin 'xuhdev/SingleCompile'
 Plugin 'hewes/unite-gtags'
 Plugin 'Shougo/unite.vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/unite-outline'
-Plugin 'Shougo/vimproc.vim'
+
 
 set t_Co=256
 "let mapleader=','
