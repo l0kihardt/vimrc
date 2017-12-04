@@ -38,9 +38,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/unite-outline'
 Plugin 'Shougo/vimproc.vim'
 
-"YCM
-Plugin 'Valloric/YouCompleteMe'
-
 set t_Co=256
 "let mapleader=','
 let g:Powerline_symbols='fancy'
