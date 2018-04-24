@@ -11,7 +11,7 @@ snippet pwn
         io = process(binary)
         context.log_level = 'debug'
         pause()
-        u64 = lambda x: u64(x.ljust(8, '\0'))
+        myu64 = lambda x: u64(x.ljust(8, '\0'))
         def pA(*args):
                 out = ''
                 for i in args:
