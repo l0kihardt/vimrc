@@ -14,7 +14,8 @@ snippet pwn
         pause()
         myu64 = lambda x: u64(x.ljust(8, '\0'))
         mylog = lambda x: "\033[33m" + hex(x) + "\033[0m"
-
+        ub_offset = 0x3c4b30
+        
         ${2}
 
         io.interactive()
