@@ -10,23 +10,20 @@ snippet pwn
 
         io = process(binary)
         context.log_level = 'debug'
+        context.arch = elf.arch
         pause()
         myu64 = lambda x: u64(x.ljust(8, '\0'))
-        def pA(*args):
-                out = ''
-                for i in args:
-                out += p64(i)
-            return out
+        mylog = lambda x: "\033[33m" + hex(x) + "\033[0m"
 
         ${2}
 
         io.interactive()
 snippet r
         io.recvuntil("${1}")
+        ${2}
 snippet s
         io.sendline(${1})
-snippet si
-        io.sendline(str(${1}))
+        ${2}
 snippet inter
         io.interactive()
 snippet fmt
@@ -34,5 +31,9 @@ snippet fmt
         for i in range(${1}):
                 payload += fmtchar(${2},(system >> i) & 0xff,${3})
         prev = (system >> i) & 0xff
-snippets l
+
+snippet si
+        io.sendline(str(${1}))
+        ${2}
+snippets L
         log.info("\e[1;31m " + hex(${1}) + " \e[0m")
