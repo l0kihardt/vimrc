@@ -9,7 +9,7 @@ cd global-6.3.3
 sudo ./configure && make 
 sudo make install && cd
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-git clone https://github.com/scwuaptx/vimrc
+git clone https://github.com/l0kihardt/vimrc
 
 cd vimrc
 cp .vimrc ~/.vimrc
