@@ -2,6 +2,7 @@ snippet pwn
 	#!/usr/bin/env python
 	# -*- coding: utf-8 -*-
 	from pwn import *
+	from __future__ import print_function
 
 	binary = ${1}
 	elf = ELF(binary)
