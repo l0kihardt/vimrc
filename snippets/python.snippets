@@ -8,13 +8,14 @@ snippet pwn
 	elf = ELF(binary)
 	libc = elf.libc
 
-	io = process(binary)
+	io = process(binary, aslr = 0)
 	context.log_level = 'debug'
 	context.arch = elf.arch
 	context.terminal = ['tmux', 'splitw', '-h']
 	
 	myu64 = lambda x: u64(x.ljust(8, '\0'))
 	ub_offset = 0x3c4b30
+	codebase = 0x555555554000
 	
 	${2}
 
