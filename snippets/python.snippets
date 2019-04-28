@@ -23,6 +23,10 @@ snippet pwn
 snippet r
 	io.recvuntil("${1}")
 	${2}
+snippet gdb
+	import gdb
+	def e(a):
+		gdb.execute(a, to_string = False)
 snippet s
 	io.sendline(${1})
 	${2}
